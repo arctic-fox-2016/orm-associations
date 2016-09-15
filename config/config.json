@@ -1,0 +1,14 @@
+{
+  "development": {
+    "storage": "db/teacher.db",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "storage": "db/teacher.db",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "storage": "db/teacher.db",
+    "dialect": "sqlite"
+  }
+}
