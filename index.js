@@ -23,18 +23,20 @@ var model = require('./models')
 //   })
 // }
 
-// model.Students.findAll({
-//
-// })
-model.Teachers.findAll({
-  include: [{
-    model: model.Students,
+model.Students.findAll({
+    include: [{
+      model: model.Teachers
+    }],
     where: {
-      TeacherId: 3
+      TeacherId: 1
     }
-  }]
-}).then(function (result) {
-  result.forEach((val) => {
-    console.log(val.dataValues.name);
+  }).then(function (result) {
+    process.stdout.write(`${result[0].dataValues.Teacher.dataValues.name} has students:\n`)
+    result.forEach((val, idx) => {
+
+      console.log(`${idx+1}. ${val.dataValues.first_name}`)
+    })
   })
-})
+  // model.Teachers.findAll({
+  //
+  // })
